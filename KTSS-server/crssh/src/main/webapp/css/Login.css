@@ -1,0 +1,51 @@
+@CHARSET "UTF-8";
+
+.background{
+	background:#D6E4FF;
+	
+	
+}
+
+.pos{
+	width:250px;
+	max-width:100%;
+	margin:0 auto;
+	margin-top:10px;
+	
+}
+
+a:link {
+    color:#000000;
+    text-decoration:none;
+}
+
+ 
+
+a:visited {
+	
+    color:#0000cd;
+    text-decoration:none;
+}
+
+     
+a:hover {
+    color:#FF0000;
+    text-decoration:underline;
+    }
+     
+a:active {
+    color:#FFFFFF;
+    text-decoration:none;
+}
+
+.col{
+	color : #8a2be2;
+}
+
+.size{
+	margin-left:10%;
+	width:80%;
+	height:80%;
+}
+
+

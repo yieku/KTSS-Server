@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+
+
+.background{
+	background:#D6E4FF;
+	
+	
+}
+
+.demo{
+	background-image: url(../images/mode.jpg);
+	background-repeat: no-repeat;
+	background-size:100%;
+	
+}
+
+
+.rule1 {
+	float: center;
+	padding-top: 100px;
+    padding-left:100px;
+	
+}
+.rule2{
+	float:center;
+	padding-left:100px;
+}

@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+
+div#div1{
+		text-align: center;
+		background-color: aqua;
+	}
+	
+	a{
+		text-decoration: none;
+	}
+	img{
+		border: 36px;
+		padding: 20px;
+		border-color: purple;
+		
+	}
+	
+	form{
+		padding-left: 350px;
+		padding-bottom: 60px;
+	}
+	p#upResult{
+		border: 36px;
+		text-align: center;
+		color: green;
+		size: 42px;
+	}
