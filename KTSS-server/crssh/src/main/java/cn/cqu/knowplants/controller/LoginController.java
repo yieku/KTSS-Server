@@ -13,24 +13,25 @@ import cn.cqu.knowplants.service.AdminService;
 import cn.cqu.knowplants.service.FarmService;
 
 
- 
+
 @Controller
 public class LoginController {
 
 	@Autowired
 	AdminService adminService;
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 	//处理普通用户，专家，管理员登陆
-	
+
 	@RequestMapping(value="/login.do", method=RequestMethod.POST)
+	// yourName字段是用于识别普通用户还是专家用户
 	public ModelAndView login(HttpSession session, @RequestParam("username") String username, @RequestParam("password") String password,@RequestParam("yourName")String var)
 			throws Exception {
-		
+
 		ModelAndView mv = new ModelAndView();
 		if(username==""||password=="")
 		{
@@ -47,7 +48,7 @@ public class LoginController {
 				{
 					session.setAttribute(WebConstants.username, username);
 					session.setAttribute(WebConstants.load_picture_result,"success");
-					
+
 					boolean flag=false;
 					flag=adminService.isUpdate(username);
 					if(flag)
@@ -62,15 +63,15 @@ public class LoginController {
 				else if(var.equals("2"))
 				{
 					session.setAttribute(WebConstants.expert, "专家");
-					
+
 					mv.setViewName("expert_main_page");
-					
+
 				}
 				else
 				{
 					mv.setViewName("admin_main_page");
 				}
-				
+
 			}
 			else
 			{
@@ -78,23 +79,23 @@ public class LoginController {
 				session.setAttribute(WebConstants.login_message,"你好，登陆失败，请检查\\n 用户名和密码是否正确");
 				mv.setViewName("login");
 			}
-			
+
 		}
 		return mv;
 	}
-	
-	
+
+
 	//注册中转页
-	@RequestMapping(value ="/register.do")   
+	@RequestMapping(value ="/register.do")
 	public ModelAndView register(HttpSession session)
 			throws Exception {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("register");
 		return mv;
-		
+
 	}
-	
-	
+
+
 	//安全退出
 	@RequestMapping(value ="/quit.do")   //注册中转页
 	public ModelAndView quit(HttpSession session)
@@ -104,20 +105,20 @@ public class LoginController {
 		session.setAttribute(WebConstants.expert, "expert");
 		session.setAttribute(WebConstants.login_state,"3");
 		session.setAttribute(WebConstants.login_message,"你好,安全退出\\n欢迎下次光临");
-		
+
 		mv.setViewName("login");
 		return mv;
-		
+
 	}
-	
-	
-	
+
+
+
 	 //跳到注册界面
-	@RequestMapping(value = "/true_register.do",method= RequestMethod.POST) 
+	@RequestMapping(value = "/true_register.do",method= RequestMethod.POST)
 	public ModelAndView farm_register(HttpSession session,@RequestParam("selectName")String var)
 			throws Exception {
 		ModelAndView mv = new ModelAndView();
-		
+
 		if(var.equals("1"))
 		{
 			mv.setViewName("farm_register");
@@ -127,10 +128,10 @@ public class LoginController {
 			mv.setViewName("expert_register");
 		}
 		return mv;
-		
+
 	}
-	
-	
+
+
 	//忘记密码时的处理
 	@RequestMapping(value = "/forget.do")
 	public ModelAndView forget(HttpSession session)
@@ -138,8 +139,8 @@ public class LoginController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("forget");
 		return mv;
-		
+
 	}
-	
+
 
 }
